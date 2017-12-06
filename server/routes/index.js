@@ -1,9 +1,29 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
+const geartrack = require('geartrack');
+const trackerUrls = require('../models/trackers');
+router.get('/', (req, res, next) => {
+  var id = 'PQ4F6P0711773490128260R';
+  //let id = req.query.id,postalcode = req.query.postalcode;
 
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  trackerUrls.forEach(url => {
+    geartrack[url].getInfo(id, (err, TrakerInfo) => {
+      if (err) {
+        return;
+      }
+      console.log(TrakerInfo);
+    });  
+  });
+  geartrack['correoses'].getInfo(id, (err, TrakerInfo) => {
+    if (err) {
+      return;
+    }
+    console.log(TrakerInfo);
+  });
+  geartrack.adicional.getInfo(id, postalcode, (err, TrakerInfo) => {
+      if(err) { return  }
+      console.log(TrakerInfo.status)
+  });
 });
 
 module.exports = router;
