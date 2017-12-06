@@ -7,16 +7,21 @@
     "dev": "nodemon ./bin/www"
   },
   "dependencies": {
+    "bcrypt": "^1.0.3",
     "body-parser": "~1.18.2",
     "cheerio": "^1.0.0-rc.2",
     "cookie-parser": "~1.4.3",
+    "debug": "^3.1.0",
+    "ejs": "^2.5.7",
     "express": "~4.15.5",
     "geartrack": "^2.8.10",
     "memory-cache": "^0.2.0",
     "mongoose": "^4.13.6",
     "mongoose-findorcreate": "^2.0.0",
     "morgan": "~1.9.0",
+    "nodemailer": "^4.4.0",
     "nodemon": "^1.12.4",
+    "passport-local": "^1.0.0",
     "request": "^2.83.0",
     "rr": "^0.1.0"
   }
