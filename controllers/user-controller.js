@@ -12,7 +12,7 @@ module.exports = {
   getOne: (req, res, next) => {
     User.findById(req.params.id)
       .then(user => res.status(200).json(user))
-      .catch(e => res.status(500).json(`Error getting user -> ${e}`));
+      .catch(e => res.status(500).json({ message: `Error getting user -> ${e}`}));
   },
   editUser: (req, res, next) => {
     const {
@@ -31,7 +31,6 @@ module.exports = {
           firstName: firstName,
           lastName: lastName,
           email: email,
-          productionType: productionType,
           seasonStarts: seasonStarts,
           seasonEnds: seasonEnds
         }
