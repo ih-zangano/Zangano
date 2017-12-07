@@ -1,22 +1,9 @@
 const express = require('express');
 const router = express.Router();
-const geartrack = require('geartrack');
-// const trackerUrls = require('../models/trackers');
-// router.get('/', (req, res, next) => {
-//   var id = 'RN434366298CN';
+const trackController = require('../../controllers/track-controller');
 
-//   trackerUrls.forEach(url => {
-//     geartrack[url].getInfo(id, (err, TrakerInfo) => {
-//       if (err) {
-//         return;
-//       }
-//       console.log(TrakerInfo);
-//     });
-//   });
-//   geartrack.adicional.getInfo(id, postalcode, (err, TrakerInfo) => {
-//       if(err) { return  }
-//       console.log(TrakerInfo.status)
-//   });
-// });
+trackRoutes.get('/', trackController.getAll);
 
-module.exports = router;
+
+
+module.exports = trackRouter;
