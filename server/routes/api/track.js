@@ -1,9 +1,9 @@
 const express = require('express');
-const router = express.Router();
+const trackAllUrls = express.Router();
 const trackController = require('../../controllers/track-controller');
 
-trackRoutes.get('/', trackController.getAll);
+trackAllUrls.get('/', trackController.trackAllUrls);
 
 
 
-module.exports = trackRouter;
+module.exports = trackAllUrls;

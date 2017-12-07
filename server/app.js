@@ -13,7 +13,7 @@ const debug = require('debug')(
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-const rootRouter = require('./routes/');
+const router = require('../server/routes/index');
 
 const app = express();
 
@@ -68,7 +68,7 @@ require('./passport/local');
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', rootRouter);
+app.use('/', router);
 
 app.all((req, res, next) => {
   res.sendfile(__dirname + '/public/index.html');

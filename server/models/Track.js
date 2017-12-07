@@ -11,4 +11,4 @@ const trackSchema = new mongoose.Schema({
   dateArrive: Date
 });
 const track = mongoose.model('track', trackSchema);
-module.exports = Track;
+module.exports = track;
