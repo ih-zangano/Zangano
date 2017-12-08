@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
-import { AuthService } from './services/auth.service';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatIconModule } from '@angular/material/icon';
+import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
 
 @Component({
   selector: 'app-root',
@@ -7,19 +10,5 @@ import { AuthService } from './services/auth.service';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-
-  username = '';
-  password = '';
-
-  constructor(private auth: AuthService) {}
-
-  login(username, password) {
-    username = this.username;
-    password = this.password;
-    this.auth.login(username, password).subscribe();
-  }
-
-  logout() {
-    this.auth.logout().subscribe();
-  }
+  title = 'app';
 }

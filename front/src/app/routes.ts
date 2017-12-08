@@ -1,7 +1,9 @@
+import { AppComponent } from './app.component';
 import { Routes } from '@angular/router';
-import { LoginmodalComponent } from './components/loginmodal/loginmodal.component';
+import { LoginformComponent } from './components/loginform/loginform.component';
 
 export const routes: Routes = [
-  { path: 'login', component: LoginmodalComponent }, // { path: 'signup', component: SignupformComponent },
+  { path: '', component: AppComponent },
+  { path: 'login', component: LoginformComponent },
   { path: '**', redirectTo: '' }
 ];
