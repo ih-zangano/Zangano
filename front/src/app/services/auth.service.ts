@@ -2,9 +2,11 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import { Http } from '@angular/http';
 // tslint:disable-next-line:import-blacklist
-import 'rxjs';
+import 'rxjs/Rx';
 import { Router } from '@angular/router';
 import { environment } from '../../environments/environment';
+import { NgModule } from '@angular/core';
+import 'rxjs/add/operator/map';
 
 const BASEURL = environment.BASEURL + '/api';
 
@@ -36,9 +38,9 @@ export class AuthService {
     return Observable.throw(e.json().message);
   }
 
-  signup(username, password) {
+  signup(username, password, email) {
     return this.http
-      .post(`${BASEURL}/signup`, { username, password }, this.options)
+      .post(`${BASEURL}/signup`, { username, password, email }, this.options)
       .map(res => res.json())
       .map(user => this.emitUserLoginEvent(user))
       .map(() => this.router.navigate(['']))

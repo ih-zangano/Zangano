@@ -1,0 +1,50 @@
+<div *ngIf="!user">
+  <h2>No user logged in</h2>
+</div>
+
+<div *ngIf="user">
+  <div class="row edit-user">
+    <div class="col-sm-2">
+      <img class="img-circle" src="{{user.image}}" alt="Profile image not found" height="150" width="150">
+      <hr>
+      <h4>
+        <b>Username</b> {{ user.username }}</h4>
+    </div>
+    <div class="col-sm-8">
+      <form novalidate>
+        <div class="form-group">
+          <label>Username</label>
+          <input class="form-control" type="text" [(ngModel)]="editUser.username" name="username" required>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>First Name</label>
+            <input class="form-control" type="text" [(ngModel)]="editUser.firstName" name="firstname" required>
+          </div>
+          <div class="form-group">
+            <label>Email</label>
+            <input class="form-control" type="email" [(ngModel)]="editUser.email" name="email" required>
+          </div>
+          <div *ngIf="user.userType === 'provider'" class="form-group">
+            <label>Season Starts</label>
+            <input class="form-control" type="date" [(ngModel)]="editUser.seasonStarts" name="seasonstarts">
+          </div>
+        </div>
+        <div class="col-sm-6">
+          <div class="form-group">
+            <label>Last Name</label>
+            <input class="form-control" type="text" [(ngModel)]="editUser.lastName" name="lastName" required>
+          </div>
+        </div>
+        <div *ngIf="user.userType === 'provider'" class="form-group">
+          <label>Season Ends</label>
+          <input class="form-control" type="date" [(ngModel)]="editUser.seasonEnds" name="seasonends">
+        </div>
+    </form>
+  </div>
+  <div class="col-sm-2">
+    <a class="btn bt" (click)="saveChanges()">Save Changes</a>
+    <a class="btn bt" [routerLink]="['/user']">Back to Profile</a>
+  </div>
+</div>
+</div>

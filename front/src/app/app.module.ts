@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, Injectable } from '@angular/core';
 import { routes } from './routes';
 import { HttpModule } from '@angular/http';
 import { AuthService } from './services/auth.service';
@@ -8,11 +8,29 @@ import { LoginformComponent } from './components/loginform/loginform.component';
 import { FormsModule } from '@angular/forms';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MaterializeModule } from 'angular2-materialize';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Routes } from '@angular/router';
+import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
+import { UserService } from './services/user.service';
+import { SignupformComponent } from './components/signupform/signupform.component';
+import { HomeComponent } from './components/home/home.component';
+import { UserprofileComponent } from './components/userprofile/userprofile.component';
+import { UserDetailsComponent } from './components/userprofile/user-details/user-details.component';
+import { FilterPipe } from './pipes/filter.pipe';
+import { TruncatePipe } from './pipes/truncate.pipe';
+
 
 
 @NgModule({
-  declarations: [AppComponent, LoginformComponent],
+  declarations: [
+    AppComponent,
+    LoginformComponent,
+    SignupformComponent,
+    HomeComponent,
+    UserprofileComponent,
+    UserDetailsComponent,
+    TruncatePipe,
+    FilterPipe
+  ],
   imports: [
     BrowserModule,
     FormsModule,
@@ -20,7 +38,7 @@ import { RouterModule } from '@angular/router';
     RouterModule.forRoot(routes),
     HttpModule
   ],
-  providers: [AuthService, MediaMatcher],
+  providers: [AuthService, MediaMatcher, IsLoggedInService, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

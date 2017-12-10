@@ -13,7 +13,7 @@ const debug = require('debug')(
 const mongoose = require('mongoose');
 const cors = require('cors');
 
-const router = require('../server/routes/index');
+const rootRouter = require('./routes/');
 
 const app = express();
 
@@ -50,7 +50,7 @@ app.use(cookieParser());
 
 app.use(
   session({
-    secret: 'LocalMarket',
+    secret: 'Local',
     resave: true,
     saveUninitialized: true,
     cookie: {
@@ -68,7 +68,7 @@ require('./passport/local');
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/', router);
+app.use('/', rootRouter);
 
 app.all((req, res, next) => {
   res.sendfile(__dirname + '/public/index.html');

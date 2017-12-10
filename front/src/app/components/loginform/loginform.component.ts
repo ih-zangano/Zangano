@@ -1,6 +1,10 @@
 import { AppComponent } from '../../app.component';
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
+import { RouterModule, Routes } from '@angular/router';
+import { routes } from '../../routes';
+ import { Router } from '@angular/router';
+ import { Observable } from 'rxjs/Observable';
 
 interface LoginForm {
   username: string;
