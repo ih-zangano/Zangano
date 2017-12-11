@@ -5,7 +5,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { routes } from '../../routes';
  import { Router } from '@angular/router';
  import { Observable } from 'rxjs/Observable';
-
+import { NgForm } from '@angular/forms';
 interface LoginForm {
   username: string;
   password: string;

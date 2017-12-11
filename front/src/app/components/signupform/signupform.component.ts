@@ -21,14 +21,13 @@ export class SignupformComponent implements OnInit {
   ngOnInit() {}
 
   signup() {
-    const { username, password, email } = this.formInfo;
+    const { username, password, email} = this.formInfo;
+    console.log(username, password);
     if (username !== '' && password !== '' && email !== '') {
-      this.auth
-        .signup(username, password, email)
-        .map(user => console.log(user))
-        .subscribe();
+      this.auth.signup(username, password, email)
+        .subscribe(user => console.log(user));
     } else {
-      console.log('You must set a username and a password');
+      console.log('You must set a username, password and email');
     }
   }
 }

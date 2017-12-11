@@ -32,7 +32,6 @@ const corsOptions = {
   },
   credentials: true
 };
-
 app.use(cors(corsOptions));
 
 app.set('views', path.join(__dirname, 'views'));
@@ -50,7 +49,7 @@ app.use(cookieParser());
 
 app.use(
   session({
-    secret: 'Local',
+    secret: 'Zangano',
     resave: true,
     saveUninitialized: true,
     cookie: {
@@ -84,7 +83,7 @@ app.use(function(err, req, res, next) {
   res.locals.message = err.message;
   res.locals.error = req.app.get('env') === 'development' ? err : {};
   res.status(err.status || 500);
-  res.render('error');
+  res.json({"message":"error"});
 });
 
 module.exports = app;

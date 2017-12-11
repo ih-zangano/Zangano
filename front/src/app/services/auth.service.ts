@@ -1,76 +1,66 @@
 import { Injectable, EventEmitter } from '@angular/core';
-import { Observable } from 'rxjs/Observable';
-import { Http } from '@angular/http';
-// tslint:disable-next-line:import-blacklist
-import 'rxjs/Rx';
-import { Router } from '@angular/router';
-import { environment } from '../../environments/environment';
-import { NgModule } from '@angular/core';
+import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
+import { Observable } from 'rxjs/Rx';
 
-const BASEURL = environment.BASEURL + '/api';
+const BASE_DOMAIN = 'http://localhost:3000';
+const BASE_URL = `${BASE_DOMAIN}/api`;
 
 @Injectable()
 export class AuthService {
-  private user: object;
-  private userLoginEvent: EventEmitter<any> = new EventEmitter<any>();
-  private options = { withCredentials: true };
+  options: object = {
+    withCredentials: true
+  };
 
-  constructor(private http: Http, private router: Router) {
+  user: object;
+  loginEvent: EventEmitter<object> = new EventEmitter();
+
+  constructor(private http: Http) {
     this.isLoggedIn().subscribe();
   }
 
-  public getLoginEventEmitter(): EventEmitter<any> {
-    return this.userLoginEvent;
-  }
-
-  public getUser() {
-    return this.user;
-  }
-
-  private emitUserLoginEvent(user) {
-    this.user = user;
-    this.userLoginEvent.emit(user);
-    return user;
-  }
-
-  private handleError(e) {
+  handleError(e) {
+    const error_message = e.json().message;
     return Observable.throw(e.json().message);
   }
 
-  signup(username, password, email) {
+  handleUser(obj) {
+    this.user = obj;
+    this.loginEvent.emit(this.user);
+    return this.user;
+  }
+
+  signup(username: string, password: string, email: string) {
     return this.http
-      .post(`${BASEURL}/signup`, { username, password, email }, this.options)
+      .post(`${BASE_URL}/auth/signup`, { username, password, email }, this.options)
       .map(res => res.json())
-      .map(user => this.emitUserLoginEvent(user))
-      .map(() => this.router.navigate(['']))
+      .map(user => this.handleUser(user))
       .catch(this.handleError);
   }
 
-  login(username, password) {
+  login(username: string, password: string) {
+    console.log(`Login with user:${username} and password ${password}`);
     return this.http
-      .post(`${BASEURL}/login`, { username, password }, this.options)
+      .post(`${BASE_URL}/auth/login`, { username, password }, this.options)
       .map(res => res.json())
-      .map(user => this.emitUserLoginEvent(user))
-      .map(() => this.router.navigate(['']))
+      .map(user => this.handleUser(user))
       .catch(this.handleError);
   }
 
   logout() {
-    this.router.navigate(['']);
     return this.http
-      .get(`${BASEURL}/logout`, this.options)
+      .get(`${BASE_URL}/auth/logout`, this.options)
       .map(res => res.json())
-      .map(user => this.emitUserLoginEvent(null))
-      .map(() => this.router.navigate(['']))
+      .map(user => this.handleUser(null))
       .catch(this.handleError);
   }
 
   isLoggedIn() {
     return this.http
-      .get(`${BASEURL}/loggedin`, this.options)
+      .get(`${BASE_URL}/auth/loggedin`, this.options)
       .map(res => res.json())
-      .map(user => this.emitUserLoginEvent(user))
+      .map(user => this.handleUser(user))
       .catch(this.handleError);
   }
 }

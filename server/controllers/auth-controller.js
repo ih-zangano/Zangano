@@ -6,8 +6,9 @@ module.exports = {
   signup: (req, res, next) => {
     const { username, password, email } = req.body;
 
-    if (!username || !password || !email)
-      return res.status(400).json({ message: 'Provide username and password' });
+    if (!username || !password || !email) return res
+        .status(400)
+        .json({ message: 'Provide username and password' });
 
     User.findOne({ username }, '_id')
       .exec()

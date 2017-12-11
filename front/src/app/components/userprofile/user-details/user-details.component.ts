@@ -27,7 +27,6 @@ export class UserDetailsComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.user = this.auth.getUser();
     this.auth.isLoggedIn().subscribe(user => {
       this.editUser = {
         username: user.username,

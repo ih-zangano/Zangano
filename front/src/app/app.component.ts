@@ -13,8 +13,6 @@ export class AppComponent {
 
   constructor(public auth: AuthService, private titleService: Title) {
     this.setTitle(this.title);
-    this.user = this.auth.getUser();
-    this.auth.getLoginEventEmitter().subscribe(user => (this.user = user));
   }
 
   logout() {

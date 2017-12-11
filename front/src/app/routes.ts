@@ -6,7 +6,6 @@ import { RouterModule } from '@angular/router';
 import { UserDetailsComponent } from './components//userprofile/user-details/user-details.component';
 
 import { HomeComponent } from './components/home/home.component';
-import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
 import { UserprofileComponent } from './components//userprofile/userprofile.component';
 
 export const routes: Routes = [
@@ -14,13 +13,11 @@ export const routes: Routes = [
   { path: 'home', component: HomeComponent },
   {
     path: 'user',
-    component: UserprofileComponent,
-    canActivate: [IsLoggedInService]
-  },
+    component: UserprofileComponent
+    },
   {
     path: 'user/profile',
-    component: UserDetailsComponent,
-    canActivate: [IsLoggedInService]
+    component: UserDetailsComponent
   },
   { path: 'login', component: LoginformComponent },
   { path: 'signup', component: SignupformComponent },

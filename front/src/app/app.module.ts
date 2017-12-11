@@ -9,7 +9,6 @@ import { FormsModule } from '@angular/forms';
 import { MediaMatcher } from '@angular/cdk/layout';
 import { MaterializeModule } from 'angular2-materialize';
 import { RouterModule, Routes } from '@angular/router';
-import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
 import { UserService } from './services/user.service';
 import { SignupformComponent } from './components/signupform/signupform.component';
 import { HomeComponent } from './components/home/home.component';
@@ -38,7 +37,7 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     RouterModule.forRoot(routes),
     HttpModule
   ],
-  providers: [AuthService, MediaMatcher, IsLoggedInService, UserService],
+  providers: [AuthService, MediaMatcher, UserService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
