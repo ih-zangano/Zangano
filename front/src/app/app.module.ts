@@ -21,6 +21,7 @@ import { BoardComponent } from './components/board/board.component';
 import { CollectionComponent } from './components/board/collection/collection.component';
 import { NewtrackComponent } from './components/board/newtrack/newtrack.component';
 import { TimetableComponent } from './components/board/timetable/timetable.component';
+import { BagService } from './services/bag.service';
 
 
 
@@ -46,7 +47,7 @@ import { TimetableComponent } from './components/board/timetable/timetable.compo
     RouterModule.forRoot(routes),
     HttpModule
   ],
-  providers: [AuthService, MediaMatcher, UserService],
+  providers: [AuthService, MediaMatcher, UserService, BagService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

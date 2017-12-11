@@ -4,7 +4,10 @@ const geartrack = require('geartrack');
 const trackerUrls = require('../models/trackers');
 const trackernew = require('../models/Track');
 
-trackAllUrls = (req, res, next) => {
+
+
+
+
   let id = '';
   let postalcode = '';
 
@@ -16,12 +19,12 @@ trackAllUrls = (req, res, next) => {
       console.log(TrakerInfo);
     });
   });
-  geartrack.adicional.getInfo(id, postalcode, (err, TrakerInfo) => {
-    if (err) {
-      return;
-    }
-    console.log(TrakerInfo.status);
-  });
-};
+//   geartrack.adicional.getInfo(id, postalcode, (err, TrakerInfo) => {
+//     if (err) {
+//       return;
+//     }
+//     console.log(TrakerInfo.status);
+//   });
+// };
 
-module.exports = {trackAllUrls};
+module.exports = {trackerUrls};
