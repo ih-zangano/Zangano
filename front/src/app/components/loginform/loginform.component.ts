@@ -24,25 +24,16 @@ export class LoginformComponent implements OnInit {
 
   message: string;
 
-  constructor(public auth: AuthService) {}
+  constructor(public auth: AuthService,  private router: Router) {}
 
   ngOnInit() {}
 
   login() {
-    const { username, password } = this.formInfo;
-    if (username !== '' && password !== '') {
+    console.log(this.formInfo);
+    if (this.formInfo.username !== '' || this.formInfo.password !== '') {
       this.auth
-        .login(username, password)
-        .map(() => {})
-        .subscribe(
-          () => {},
-          err => {
-            this.message = err;
-            this.formInfo = { username: '', password: '' };
-          }
-        );
-    } else {
-      this.message = 'You must set a username and a password';
+        .login(this.formInfo.username, this.formInfo.password)
+        .subscribe(res => this.router.navigate(['/board']));
     }
   }
 }

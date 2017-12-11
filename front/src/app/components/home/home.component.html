@@ -1,40 +1,51 @@
-<!-- <nav>
+<nav>
   <div class="nav-wrapper">
     <a href="#!" class="brand-logo">Zángano</a>
     <a href="#" data-activates="mobile-demo" class="button-collapse">
       <i class="material-icons">menu</i>
     </a>
     <ul class="right hide-on-med-and-down">
-      <li>
-        <a [routerLink]="['login']">Login</a>
+      <li *ngIf="!user">
+        <a [routerLink]="['login']">Log in</a>
       </li>
-      <li>
-        <a [routerLink]="['signup']">SignUp</a>
+      <li *ngIf="!user">
+        <a [routerLink]="['signup']">Sign up</a>
       </li>
-      <li>
+      <li *ngIf="user">
+        <a [routerLink]="['/user']">User Profile</a>
+      </li>
+      <li *ngIf="user">
+        <a class="drop nav-a" (click)="logout()">Logout</a>
+      </li>
+      <!-- <li>
         <a href="collapsible.html">Javascript</a>
       </li>
       <li>
         <a href="mobile.html">Mobile</a>
-      </li>
+      </li> -->
     </ul>
     <ul class="side-nav" id="mobile-demo">
       <br>
 
-      <li>
-        <a [routerLink]="['login']">Login</a>
+      <li *ngIf="!user">
+        <a [routerLink]="['login']">Log in</a>
       </li>
-      <li>
-        <a [routerLink]="['signup']">SignUp</a>
+      <li *ngIf="!user">
+        <a [routerLink]="['signup']">Sign up</a>
       </li>
-      <li>
+      <li *ngIf="user">
+        <a [routerLink]="['/user']">User Profile</a>
+      </li>
+      <li *ngIf="user">
+        <a (click)="logout()">Logout</a>
+      </li>
+
+      <!-- <li>
         <a href="collapsible.html">Javascript</a>
       </li>
       <li>
         <a href="mobile.html">Mobile</a>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
-
- -->

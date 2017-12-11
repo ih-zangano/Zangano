@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from './services/auth.service';
 import { Title } from '@angular/platform-browser';
-declare var $;
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -17,7 +16,6 @@ export class AppComponent {
 
   logout() {
     this.auth.logout().subscribe();
-    $('.button-collapse').sideNav();
   }
 
   public setTitle(newTitle) {

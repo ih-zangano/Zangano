@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { LoginformComponent } from './components/loginform/loginform.component';
 import { FormsModule } from '@angular/forms';
 import { MediaMatcher } from '@angular/cdk/layout';
+import 'materialize-css';
 import { MaterializeModule } from 'angular2-materialize';
 import { RouterModule, Routes } from '@angular/router';
 import { UserService } from './services/user.service';
@@ -16,6 +17,10 @@ import { UserprofileComponent } from './components/userprofile/userprofile.compo
 import { UserDetailsComponent } from './components/userprofile/user-details/user-details.component';
 import { FilterPipe } from './pipes/filter.pipe';
 import { TruncatePipe } from './pipes/truncate.pipe';
+import { BoardComponent } from './components/board/board.component';
+import { CollectionComponent } from './components/board/collection/collection.component';
+import { NewtrackComponent } from './components/board/newtrack/newtrack.component';
+import { TimetableComponent } from './components/board/timetable/timetable.component';
 
 
 
@@ -28,7 +33,11 @@ import { TruncatePipe } from './pipes/truncate.pipe';
     UserprofileComponent,
     UserDetailsComponent,
     TruncatePipe,
-    FilterPipe
+    FilterPipe,
+    BoardComponent,
+    CollectionComponent,
+    NewtrackComponent,
+    TimetableComponent
   ],
   imports: [
     BrowserModule,
