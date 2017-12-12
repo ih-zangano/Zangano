@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
+import { Router } from '@angular/router';
+import { NgForm } from '@angular/forms';
 
 
 @Component({
@@ -8,10 +10,6 @@ import { AuthService } from '../../../services/auth.service';
   styleUrls: ['./newtrack.component.css']
 })
 export class NewtrackComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+  constructor(  ) {}
+  ngOnInit() { }
 }

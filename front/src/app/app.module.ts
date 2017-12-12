@@ -21,7 +21,8 @@ import { BoardComponent } from './components/board/board.component';
 import { CollectionComponent } from './components/board/collection/collection.component';
 import { NewtrackComponent } from './components/board/newtrack/newtrack.component';
 import { TimetableComponent } from './components/board/timetable/timetable.component';
-import { BagService } from './services/bag.service';
+import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
+import { TrackService } from './services/track.service';
 
 
 
@@ -38,7 +39,7 @@ import { BagService } from './services/bag.service';
     BoardComponent,
     CollectionComponent,
     NewtrackComponent,
-    TimetableComponent
+    TimetableComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +48,13 @@ import { BagService } from './services/bag.service';
     RouterModule.forRoot(routes),
     HttpModule
   ],
-  providers: [AuthService, MediaMatcher, UserService, BagService],
+  providers: [
+    AuthService,
+    MediaMatcher,
+    UserService,
+    TrackService,
+    IsLoggedInService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule {}

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../../services/auth.service';
+import { Router } from '@angular/router';
 
 declare var $;
 
@@ -9,12 +10,7 @@ declare var $;
   styleUrls: ['./collection.component.css']
 })
 export class CollectionComponent implements OnInit {
-  constructor() {}
+  constructor(  ) {}
 
-  ngOnInit() {
-
-    $(document).ready(function(){
-      $('.collapsible').collapsible();
-    });
-  }
+  ngOnInit() {}
 }

@@ -3,7 +3,10 @@ import { UserService } from '../../../services/user.service';
 import { AuthService } from '../../../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { DatePipe } from '@angular/common';
-
+import { AppComponent } from '../../../app.component';
+import { RouterModule, Routes } from '@angular/router';
+import { routes } from '../../../routes';
+import { Observable } from 'rxjs/Observable';
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
@@ -22,8 +25,8 @@ export class UserDetailsComponent implements OnInit {
 
   constructor(
     public auth: AuthService,
-    private usrService: UserService,
-    private router: Router
+    public usrService: UserService,
+    public router: Router
   ) {}
 
   ngOnInit() {

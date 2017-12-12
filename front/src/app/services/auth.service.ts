@@ -3,20 +3,21 @@ import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { Observable } from 'rxjs/Observable';
+import { environment } from '../../environments/environment';
+import { Router } from '@angular/router';
 
 const BASE_DOMAIN = 'http://localhost:3000';
 const BASE_URL = `${BASE_DOMAIN}/api`;
 
 @Injectable()
 export class AuthService {
-  options: object = {
+  private options: object = {
     withCredentials: true
   };
+  private user: object;
+  private userLoginEvent: EventEmitter<object> = new EventEmitter();
 
-  user: object;
-  loginEvent: EventEmitter<object> = new EventEmitter();
-
-  constructor(private http: Http) {
+  constructor(private http: Http, private router: Router) {
     this.isLoggedIn().subscribe();
   }
 
@@ -24,14 +25,18 @@ export class AuthService {
     const error_message = e.json().message;
     return Observable.throw(e.json().message);
   }
+
+  public getLoginEventEmitter(): EventEmitter<any> {
+    return this.userLoginEvent;
+  }
+
   public getUser() {
     return this.user;
   }
-
-  handleUser(obj) {
-    this.user = obj;
-    this.loginEvent.emit(this.user);
-    return this.user;
+  private emitUserLoginEvent(user) {
+    this.user = user;
+    this.userLoginEvent.emit(user);
+    return user;
   }
 
   signup(username: string, password: string, email: string) {
@@ -42,7 +47,8 @@ export class AuthService {
         this.options
       )
       .map(res => res.json())
-      .map(user => this.handleUser(user))
+      .map(user => this.emitUserLoginEvent(user))
+      .map(() => this.router.navigate(['/board']))
       .catch(this.handleError);
   }
 
@@ -51,7 +57,7 @@ export class AuthService {
     return this.http
       .post(`${BASE_URL}/auth/login`, { username, password }, this.options)
       .map(res => res.json())
-      .map(user => this.handleUser(user))
+      .map(user => this.emitUserLoginEvent(user))
       .catch(this.handleError);
   }
 
@@ -59,7 +65,7 @@ export class AuthService {
     return this.http
       .get(`${BASE_URL}/auth/logout`, this.options)
       .map(res => res.json())
-      .map(user => this.handleUser(null))
+      .map(user => this.emitUserLoginEvent(null))
       .catch(this.handleError);
   }
 
@@ -67,7 +73,7 @@ export class AuthService {
     return this.http
       .get(`${BASE_URL}/auth/loggedin`, this.options)
       .map(res => res.json())
-      .map(user => this.handleUser(user))
+      .map(user => this.emitUserLoginEvent(user))
       .catch(this.handleError);
   }
 }
