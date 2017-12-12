@@ -5,26 +5,14 @@ const trackerUrls = require('../models/trackers');
 const trackernew = require('../models/Track');
 
 
+module.exports = { 
+  getAll: (req, res, next) => {
+  geartrack.correoses.getInfo("PQ599A0438062660128260L", (err, TrakerInfo) => {
+	  if(err) { return }
+    
+   res.json(TrakerInfo);
+   
+  })
 
-
-
-  let id = '';
-  let postalcode = '';
-
-  trackerUrls.forEach(url => {
-    geartrack[url].getInfo(id, (err, TrakerInfo) => {
-      if (err) {
-        return;
-      }
-      console.log(TrakerInfo);
-    });
-  });
-//   geartrack.adicional.getInfo(id, postalcode, (err, TrakerInfo) => {
-//     if (err) {
-//       return;
-//     }
-//     console.log(TrakerInfo.status);
-//   });
-// };
-
-// module.exports = {trackerUrls};
+  }
+}

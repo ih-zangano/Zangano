@@ -2,7 +2,7 @@ import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { Observable } from 'rxjs/Rx';
+import { Observable } from 'rxjs/Observable';
 
 const BASE_DOMAIN = 'http://localhost:3000';
 const BASE_URL = `${BASE_DOMAIN}/api`;
@@ -24,6 +24,9 @@ export class AuthService {
     const error_message = e.json().message;
     return Observable.throw(e.json().message);
   }
+  public getUser() {
+    return this.user;
+  }
 
   handleUser(obj) {
     this.user = obj;
@@ -33,7 +36,11 @@ export class AuthService {
 
   signup(username: string, password: string, email: string) {
     return this.http
-      .post(`${BASE_URL}/auth/signup`, { username, password, email }, this.options)
+      .post(
+        `${BASE_URL}/auth/signup`,
+        { username, password, email },
+        this.options
+      )
       .map(res => res.json())
       .map(user => this.handleUser(user))
       .catch(this.handleError);
