@@ -27,4 +27,4 @@ const trackernew = require('../models/Track');
 //   });
 // };
 
-module.exports = {trackerUrls};
+// module.exports = {trackerUrls};

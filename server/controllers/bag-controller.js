@@ -1,6 +1,6 @@
 const bag = require('../models/Bag');
-const user = require('../models/User')
-const track = require('../models/Track')
+const user = require('../models/User');
+const track = require('../models/Track');
 
 module.exports = {
   getAll: (req, res, next) => {
