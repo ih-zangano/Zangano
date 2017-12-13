@@ -6,19 +6,3 @@
 </div>
 
 
-
-<div *ngIf="track">
-  <div>
-    <h2> {{ track.id }}&nbsp;</h2>
-    <h3> {{ track.state }} </h3>
-
-    <div>
-      <h4> History </h4>
-      <h5>{{ track.states }}</h5>
-      <ul>
-        <li *ngFor="let spec of track.states"> {{ spec | json}} </li>
-
-      </ul>
-  </div>
-
-

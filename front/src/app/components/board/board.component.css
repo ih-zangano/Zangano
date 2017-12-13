@@ -1,8 +1,16 @@
 .icon {
   display: inline-block;
-  align-content: center;
 }
 
-.packIcon{
-   padding: 100px;
+.packIcon {
+   padding: 100px 0 0 0;
+   position: absolute;
+   bottom: 0;
+   text-align: center;
+   margin-bottom: 15px;
+
+}
+
+.title {
+ text-align: center;
 }

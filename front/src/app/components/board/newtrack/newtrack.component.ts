@@ -7,7 +7,6 @@ import { Injectable } from '@angular/core';
 import { Http, Response, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 
-
 @Component({
   selector: 'app-newtrack',
   templateUrl: './newtrack.component.html',
@@ -17,6 +16,7 @@ export class NewtrackComponent implements OnInit {
   public track;
   private user;
   public idTrack;
+
   constructor(
     private routes: ActivatedRoute,
     private trackServices: TrackService,
@@ -27,7 +27,6 @@ export class NewtrackComponent implements OnInit {
   ngOnInit() {}
 
   newTrack(id) {
-    this.trackServices.getNewTrack(id)
-      .subscribe(track => console.log(track));
+    this.trackServices.getNewTrack(id).subscribe(track => console.log(track));
   }
 }

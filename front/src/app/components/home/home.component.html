@@ -4,48 +4,23 @@
     <a href="#" data-activates="mobile-demo" class="button-collapse">
       <i class="material-icons">menu</i>
     </a>
-    <ul class="right hide-on-med-and-down">
-      <li *ngIf="!user">
-        <a [routerLink]="['login']">Log in</a>
-      </li>
-      <li *ngIf="!user">
-        <a [routerLink]="['signup']">Sign up</a>
-      </li>
-      <li *ngIf="user">
-        <a [routerLink]="['/user']">User Profile</a>
-      </li>
-      <li *ngIf="user">
-        <a class="drop nav-a" (click)="logout()">Logout</a>
-      </li>
-      <!-- <li>
-        <a href="collapsible.html">Javascript</a>
-      </li>
-      <li>
-        <a href="mobile.html">Mobile</a>
-      </li> -->
-    </ul>
     <ul class="side-nav" id="mobile-demo">
-      <br>
-
-      <li *ngIf="!user">
-        <a [routerLink]="['login']">Log in</a>
-      </li>
-      <li *ngIf="!user">
-        <a [routerLink]="['signup']">Sign up</a>
-      </li>
-      <li *ngIf="user">
-        <a [routerLink]="['/user']">User Profile</a>
-      </li>
-      <li *ngIf="user">
-        <a (click)="logout()">Logout</a>
-      </li>
-
-      <!-- <li>
-        <a href="collapsible.html">Javascript</a>
-      </li>
-      <li>
-        <a href="mobile.html">Mobile</a>
-      </li> -->
+      <div *ngIf="!user">
+        <li >
+          <a [routerLink]="['login']">Log in</a>
+        </li>
+        <li *ngIf="!user">
+          <a [routerLink]="['signup']">Sign up</a>
+        </li>
+      </div>
+        <div *ngIf="user">
+          <li *ngIf="user">
+            <a [routerLink]="['/user']">User Profile</a>
+          </li>
+          <li *ngIf="user">
+            <a (click)="logout()">Logout</a>
+          </li>
+        </div>
     </ul>
   </div>
 </nav>

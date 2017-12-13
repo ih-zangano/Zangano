@@ -16,7 +16,18 @@ declare var $;
 export class HomeComponent implements OnInit {
   constructor(private router: Router, public auth: AuthService) {}
   user: object;
-  ngOnInit() {}
+  ngOnInit() {
+    setInterval(()=>{
+      if(this.auth.user){this.user = this.auth.user}
+      else{
+        this.user = undefined;
+      }
+    },1000)
+  $('.button-collapse').sideNav({
+      closeOnClick: true
+    });
+
+  }
   logout() {
     this.auth.logout().subscribe();
   }

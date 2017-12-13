@@ -1,35 +1,21 @@
 <div *ngIf="bag">
-  <ul>
-    <li class="collection-header">
-      <h4>Tracks</h4>
-    </li>
-    <li class="collection-item">
-      <div>{{bag.track.id}}
-        <a href="#!" class="secondary-content">
-          <i class="material-icons">send</i>
-        </a>
-      </div>
-    </li>
-    <li class="collection-item">
-      <div>Alvin
-        <a href="#!" class="secondary-content">
-          <i class="material-icons">send</i>
-        </a>
-      </div>
-    </li>
-    <li class="collection-item">
-      <div>Alvin
-        <a href="#!" class="secondary-content">
-          <i class="material-icons">send</i>
-        </a>
-      </div>
-    </li>
-    <li class="collection-item">
-      <div>Alvin
-        <a href="#!" class="secondary-content">
-          <i class="material-icons">send</i>
-        </a>
-      </div>
-    </li>
-  </ul>
+  <div *ngFor="let bag of bag | filter:['id']; let idx = index">
+    <ul>
+      <li class="collection-header">
+        <h5>Tracks</h5>
+      </li>
+      <li class="collection-item">
+        <div>Number: {{bag.id}} -
+          <br> State: {{bag.state}} -
+          <div *ngFor="let state of bag.states">
+          <br> States {{state.title}} -
+          <br>        {{state.state}}
+          </div>
+          <a href="#!" class="secondary-content">
+            <i class="material-icons">send</i>
+          </a>
+        </div>
+      </li>
+    </ul>
+  </div>
 </div>

@@ -29,7 +29,6 @@ export class LoginformComponent implements OnInit {
   ngOnInit() {}
 
   login() {
-    console.log(this.formInfo);
     if (this.formInfo.username !== '' || this.formInfo.password !== '') {
       this.auth
         .login(this.formInfo.username, this.formInfo.password)
