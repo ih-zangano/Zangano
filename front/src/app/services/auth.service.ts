@@ -76,4 +76,10 @@ export class AuthService {
       .map(user => this.emitUserLoginEvent(user))
       .catch(this.handleError);
   }
+   sendMail() {
+    return this.http
+      .post(`${BASE_URL}/email/sendEmail`, this.user, this.options)
+      .map(res => res.json());
+  }
+
 }
