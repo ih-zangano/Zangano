@@ -1,12 +1,24 @@
+<div class="form-group">
+  <label for="idtrack" class="col-sm-2 control-label">Busqueda</label>
+  <input type="text" class="form-control" [(ngModel)]="idTrack" id="idtrack" name="idtrack" placeholder=" New ID Track"/>
+  <button class="btn waves-effect waves-light" type="submit" name="action" (click)="newTrack(idTrack)" [routerLink]="['/board']">Send
+  <i class="material-icons right"></i></button>
+</div>
 
-<form class="form-horizontal">
-  <div class="form-group">
-    <label for="idtrack" class="col-sm-2 control-label">New track</label>
-    <div class="col-sm-10">
-      <input type="text" class="form-control" id="idtrack" [(ngModel)]="formInfo.id" name="idtrack" placeholder=" New ID Track"
-      />
-    </div>
-    <button class="btn waves-effect waves-light" type="submit" name="action">Send
-      <i class="material-icons right"></i></button>
+
+
+<div *ngIf="track">
+  <div>
+    <h2> {{ track.id }}&nbsp;</h2>
+    <h3> {{ track.state }} </h3>
+
+    <div>
+      <h4> History </h4>
+      <h5>{{ track.states }}</h5>
+      <ul>
+        <li *ngFor="let spec of track.states"> {{ spec | json}} </li>
+
+      </ul>
   </div>
-</form>
+
+

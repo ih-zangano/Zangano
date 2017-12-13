@@ -1,7 +1,35 @@
-<div class="collection">
-  <!-- añadir id de entrada guardada aqui. en cada item y descripcion del mismo -->
-  <a href="#!" class="collection-item">ID truck and descrip.</a>
-  <a href="#!" class="collection-item">ID truck and descrip.</a>
-  <a href="#!" class="collection-item">ID truck and descrip.</a>
-  <a href="#!" class="collection-item">ID truck and descrip.</a>
+<div *ngIf="bag">
+  <ul>
+    <li class="collection-header">
+      <h4>Tracks</h4>
+    </li>
+    <li class="collection-item">
+      <div>{{bag.track.id}}
+        <a href="#!" class="secondary-content">
+          <i class="material-icons">send</i>
+        </a>
+      </div>
+    </li>
+    <li class="collection-item">
+      <div>Alvin
+        <a href="#!" class="secondary-content">
+          <i class="material-icons">send</i>
+        </a>
+      </div>
+    </li>
+    <li class="collection-item">
+      <div>Alvin
+        <a href="#!" class="secondary-content">
+          <i class="material-icons">send</i>
+        </a>
+      </div>
+    </li>
+    <li class="collection-item">
+      <div>Alvin
+        <a href="#!" class="secondary-content">
+          <i class="material-icons">send</i>
+        </a>
+      </div>
+    </li>
+  </ul>
 </div>

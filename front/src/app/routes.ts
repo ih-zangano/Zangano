@@ -14,7 +14,6 @@ import { TimetableComponent } from './components/board/timetable/timetable.compo
 import { CollectionComponent } from './components/board/collection/collection.component';
 import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
 
-
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
@@ -36,17 +35,17 @@ export const routes: Routes = [
     canActivate: [IsLoggedInService]
   },
   {
-    path: 'collection',
+    path: 'board/collection',
     component: CollectionComponent,
     canActivate: [IsLoggedInService]
   },
   {
-    path: 'newtrack',
+    path: 'board/collection/newtrack',
     component: NewtrackComponent,
     canActivate: [IsLoggedInService]
   },
   {
-    path: 'timetable',
+    path: 'board/collection/timetable',
     component: TimetableComponent,
     canActivate: [IsLoggedInService]
   },
