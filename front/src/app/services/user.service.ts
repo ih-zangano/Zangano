@@ -5,7 +5,7 @@ import { NgModule } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 
-const BASE_DOMAIN = 'http://localhost:3000';
+const BASE_DOMAIN = 'environment.baseurl';
 const BASEURL = `${BASE_DOMAIN}/api/user`;
 
 

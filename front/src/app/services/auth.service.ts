@@ -6,7 +6,7 @@ import 'rxjs/add/operator/catch';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 
-const BASE_DOMAIN = 'http://localhost:3000';
+const BASE_DOMAIN = 'environment.baseurl';
 const BASE_URL = `${BASE_DOMAIN}/api`;
 
 @Injectable()

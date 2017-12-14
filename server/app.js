@@ -13,6 +13,7 @@ const debug = require('debug')(
 const mongoose = require('mongoose');
 const cors = require('cors');
 
+
 const rootRouter = require('./routes/');
 
 const app = express();
@@ -64,6 +65,7 @@ app.use(
 
 require('./passport/serializers');
 require('./passport/local');
+require('dotenv').config();
 app.use(passport.initialize());
 app.use(passport.session());
 
