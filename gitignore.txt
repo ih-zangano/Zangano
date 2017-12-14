@@ -1,8 +1,0 @@
-.DS_Store
-Thumbs.db
-.env
-
-
-# dependencies
-/node_modules
-
