@@ -27,6 +27,10 @@ export class NewtrackComponent implements OnInit {
   ngOnInit() {}
 
   newTrack(id) {
-    this.trackServices.getNewTrack(id).subscribe(track => console.log(track));
+    this.trackServices
+      .getNewTrack(id, this.authService.user._id)
+      .subscribe(track => {
+        this.router.navigate(['/board']);
+      });
   }
 }

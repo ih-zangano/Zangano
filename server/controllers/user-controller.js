@@ -3,11 +3,12 @@ const bcrypt = require('bcrypt');
 
 module.exports = {
   getAll: (req, res, next) => {
-    User.find({})
-      .then(users => res.status(200).json(users))
-      .catch(e =>
-        res.status(500).json({ message: `Error getting all users -> ${e}` })
-      );
+     User.find({})
+    console.log(User, "POLLLLLLLLO");
+    //   .then(users => res.status(200).json(users))
+    //   .catch(e =>
+    //     res.status(500).json({ message: `Error getting all users -> ${e}` })
+    //   );
   },
   getOne: (req, res, next) => {
     User.findById(req.params.id)
@@ -56,5 +57,5 @@ module.exports = {
       );
   }
 
-  
+
 };

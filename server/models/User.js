@@ -10,7 +10,7 @@ const userSchema = new Schema(
     firstName: { type: String },
     lastName: { type: String },
     email: { type: String },
-    bag: { type: Schema.Types.ObjectId, ref: 'Bag' }
+    bag: [ {type: Schema.Types.ObjectId, ref: 'track'}]
   },
   {
     timestamps: { createdAt: 'created_at', updatedAt: 'updated_at' }

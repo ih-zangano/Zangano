@@ -1,8 +1,8 @@
 import { Injectable, EventEmitter } from '@angular/core';
 import { Http, Response } from '@angular/http';
+import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
-import { Observable } from 'rxjs/Observable';
 import { environment } from '../../environments/environment';
 import { Router } from '@angular/router';
 
@@ -14,7 +14,15 @@ export class AuthService {
   options: object = {
     withCredentials: true
   };
-  user: object;
+  user = {
+    _id: '',
+    username: '',
+    password: '',
+    firstName: '',
+    lastName: '',
+    email: '',
+    bag: []
+  };
   loginEvent: EventEmitter<object> = new EventEmitter();
 
   constructor(private http: Http) {
@@ -52,7 +60,6 @@ export class AuthService {
       .map(user => this.handleUser(user))
       .catch(this.handleError);
   }
-
 
   logout() {
     return this.http

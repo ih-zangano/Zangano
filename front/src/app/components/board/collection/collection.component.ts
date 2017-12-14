@@ -13,7 +13,7 @@ declare var $;
   styleUrls: ['./collection.component.css']
 })
 export class CollectionComponent implements OnInit {
-  bag: Array<any> = [];
+  bag: Array<Object> = [];
 
   constructor(
     private trackService: TrackService,
@@ -22,8 +22,10 @@ export class CollectionComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-    this.trackService.getAll().subscribe( bag => {console.log(bag);
-      this.bag = bag;
+    setTimeout(() => {
+    }, 1000);
+    this.trackService.getAll(this.authService.user._id).subscribe(user => {
+      this.bag = user.bag;
     });
     }
 }

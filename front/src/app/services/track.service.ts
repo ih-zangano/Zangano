@@ -13,16 +13,19 @@ interface BagUser {
 }
 @Injectable()
 export class TrackService {
-  private bag: Array<Object> = [];
-  private track: Object;
+  private user: object;
+  private bag: Array<object> = [];
+  private track: object;
   private options = { withCredentials: true };
 
   constructor(private http: Http) {}
-  getNewTrack(id) {
-    return this.http.get(`${BASEURL}/new?id=${id}`, this.options).map(res => res.json());
+  getNewTrack(id, userId) {
+    return this.http
+      .get(`${BASEURL}/new?id=${id}&userId=${userId}`, this.options)
+      .map(res => res.json());
   }
-  getAll() {
-    return this.http.get(`${BASEURL}/all`, this.options).map(res => res.json());
+  getAll(id) {
+    return this.http.get(`${BASEURL}/all?userId=${id}`, this.options).map(res => res.json());
   }
 }
 
