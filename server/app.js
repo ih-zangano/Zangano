@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const logger = require('morgan');
@@ -17,10 +18,6 @@ const cors = require('cors');
 const rootRouter = require('./routes/');
 
 const app = express();
-
-if (process.env.NODE_ENV === 'development') {
-  require('dotenv').config();
-}
 
 require('./config/db.config');
 
@@ -65,7 +62,6 @@ app.use(
 
 require('./passport/serializers');
 require('./passport/local');
-require('dotenv').config();
 app.use(passport.initialize());
 app.use(passport.session());
 
