@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { TrackService } from '../../../services/track.service';
 import { UserService } from '../../../services/user.service';
 
-
 declare var $;
 
 @Component({
@@ -19,7 +18,7 @@ export class CollectionComponent implements OnInit {
     private trackService: TrackService,
     private authService: AuthService,
     public userService: UserService
-  ) {}
+  ) { }
 
   ngOnInit() {
     setTimeout(() => {
@@ -28,5 +27,6 @@ export class CollectionComponent implements OnInit {
       this.bag = user.bag;
     });
     }
+
 }
 

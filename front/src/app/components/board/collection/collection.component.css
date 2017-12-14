@@ -1,4 +1,10 @@
 .box {
-  border: 1px solid #000;
+  border: 1px solid #82b1ff;
   padding: 21px;
+}
+.back {
+background-color: #bbdefb;
+}
+.clean {
+  line-height: 20px;
 }

@@ -1,19 +1,16 @@
 <div *ngIf="bag">
   <div *ngFor="let track of bag | filter:['id']; let idx = index">
-    <ul>
+    <ul class="collection-scroll back">
       <li class="collection-header ">
-        <h6>
-          <b>Tracking</b>
-        </h6>
       </li>
-      <li class="collection-item box">
+      <li class="collection-item box clean">
         <div>Number: <br> {{track.id}}
           <br> State: <br> {{track.state}}
             <hr>
           <div *ngFor="let state of track.states">
            <span> <br> Old State:
-            {{state.date}}
             {{state.title}}
+            {{state.date}}
             {{state.state}}
             <hr>
            </span>

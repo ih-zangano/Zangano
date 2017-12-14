@@ -22,6 +22,7 @@ import { CollectionComponent } from './components/board/collection/collection.co
 import { NewtrackComponent } from './components/board/newtrack/newtrack.component';
 import { TimetableComponent } from './components/board/timetable/timetable.component';
 import { TrackService } from './services/track.service';
+import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
 
 
 
@@ -38,7 +39,7 @@ import { TrackService } from './services/track.service';
     BoardComponent,
     CollectionComponent,
     NewtrackComponent,
-    TimetableComponent,
+    TimetableComponent
   ],
   imports: [
     BrowserModule,
@@ -52,6 +53,7 @@ import { TrackService } from './services/track.service';
     MediaMatcher,
     UserService,
     TrackService,
+    IsLoggedInService
   ],
   bootstrap: [AppComponent]
 })

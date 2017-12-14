@@ -24,7 +24,10 @@ export class HomeComponent implements OnInit {
       }
     }, 1000);
     $('.button-collapse').sideNav({
-      closeOnClick: true
+      closeOnClick: true,
+      menuWidth: 250,
+      draggable: true,
+
     });
   }
   logout() {

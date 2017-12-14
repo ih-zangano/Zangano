@@ -23,7 +23,7 @@ export class AuthService {
     email: '',
     bag: []
   };
-  loginEvent: EventEmitter<object> = new EventEmitter();
+  private loginEvent: EventEmitter<any> = new EventEmitter<any>();
 
   constructor(private http: Http) {
     this.isLoggedIn().subscribe();
@@ -34,6 +34,11 @@ export class AuthService {
     console.error(error_message);
     return Observable.throw(e.json().message);
   }
+  private emitUserLoginEvent(user) {
+    this.user = user;
+    this.loginEvent.emit(user);
+    return user;
+  }
 
   handleUser(obj) {
     this.user = obj;
@@ -43,13 +48,9 @@ export class AuthService {
 
   signup(username: string, password: string, email: string) {
     return this.http
-      .post(
-        `${BASE_URL}/auth/signup`,
-        { username, password, email },
-        this.options
-      )
+      .post(`${BASE_URL}/auth/signup`, { username, password, email }, this.options)
       .map(res => res.json())
-      .map(user => this.handleUser(user))
+      .map(user => this.emitUserLoginEvent(user))
       .catch(this.handleError);
   }
 
@@ -57,24 +58,26 @@ export class AuthService {
     return this.http
       .post(`${BASE_URL}/auth/login`, { username, password }, this.options)
       .map(res => res.json())
-      .map(user => this.handleUser(user))
+      .map(user => this.emitUserLoginEvent(user))
       .catch(this.handleError);
   }
-
+  public getUser() {
+    return this.user;
+  }
   logout() {
     return this.http
       .get(`${BASE_URL}/auth/logout`, this.options)
       .map(res => res.json())
-      .map(user => this.handleUser(null))
+      .map(user => this.emitUserLoginEvent(null))
       .catch(this.handleError);
   }
 
+
   isLoggedIn() {
-    return this.http
-      .get(`${BASE_URL}/auth/loggedin`, this.options)
-      .map(res => res.json())
-      .map(user => this.handleUser(user))
-      .catch(this.handleError);
+      return this.http.get(`${BASE_URL}/auth/loggedin`, this.options)
+        .map(res => res.json())
+        .map(user => this.emitUserLoginEvent(user))
+        .catch(this.handleError);
   }
   sendMail() {
     return this.http
