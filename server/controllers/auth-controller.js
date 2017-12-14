@@ -1,6 +1,7 @@
 const bcrypt = require('bcrypt');
 const User = require('../models/User');
 const passport = require('passport');
+const express = require('express');
 
 module.exports = {
   signup: (req, res, next) => {
@@ -52,7 +53,7 @@ module.exports = {
   },
   isLoggedIn: (req, res, next) => {
     if (req.isAuthenticated()) return res.status(200).json(req.user);
-    // res.status(403).json({message: 'Unauthorized'})
+     res.status(403).json({message: 'Unauthorized'});
   },
   logout: (req, res, next) => {
     req.logout();

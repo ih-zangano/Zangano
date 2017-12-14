@@ -1,4 +1,3 @@
-
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router/src/router_state';
 import { RouterModule, Routes } from '@angular/router';
@@ -17,18 +16,18 @@ export class HomeComponent implements OnInit {
   constructor(private router: Router, public auth: AuthService) {}
   user: object;
   ngOnInit() {
-    setInterval(()=>{
-      if(this.auth.user){this.user = this.auth.user}
-      else{
+    setInterval(() => {
+      if (this.auth.user) {
+        this.user = this.auth.user;
+      } else {
         this.user = undefined;
       }
-    },1000)
-  $('.button-collapse').sideNav({
+    }, 1000);
+    $('.button-collapse').sideNav({
       closeOnClick: true
     });
-
   }
   logout() {
-    this.auth.logout().subscribe();
+    this.auth.logout().subscribe(res => this.router.navigate(['/login']));
   }
 }

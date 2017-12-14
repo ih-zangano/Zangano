@@ -38,27 +38,7 @@ module.exports = {
         }
       });
 
-    //   else if (!track)
-    //     geartrack.correoses.getInfo(idForTrack, (err, TrakerInfo) => {
-    //       if (err) {
-    //         return;
-    //       }
-    //       //console.log(req)
-    //       const newTrack = new trackernew({
-    //         id: TrakerInfo.id,
-    //         state: TrakerInfo.state,
-    //         states: TrakerInfo.states,
-    //         trackerWebsite: TrakerInfo.trackerWebsite
-    //       });
-    //       newTrack
-    //         .save()
-    //         .then(result => res.status(200).json(result))
-    //         .catch(e =>
-    //           res
-    //             .status(500)
-    //             .json({ message: 'Error rendering a single track' })
-    //         );
-    //     });
+ 
     });
   },
   getOne: (req, res, next) => {

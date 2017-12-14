@@ -1,10 +1,10 @@
 <nav>
-  <div class="nav-wrapper">
+  <div class="nav-wrapper back">
     <a href="#!" class="brand-logo">Zángano</a>
     <a href="#" data-activates="mobile-demo" class="button-collapse">
       <i class="material-icons">menu</i>
     </a>
-    <ul class="side-nav" id="mobile-demo">
+    <ul class="side-nav container" id="mobile-demo">
       <div *ngIf="!user">
         <li >
           <a [routerLink]="['login']">Log in</a>

@@ -21,7 +21,6 @@ import { BoardComponent } from './components/board/board.component';
 import { CollectionComponent } from './components/board/collection/collection.component';
 import { NewtrackComponent } from './components/board/newtrack/newtrack.component';
 import { TimetableComponent } from './components/board/timetable/timetable.component';
-import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
 import { TrackService } from './services/track.service';
 
 
@@ -53,7 +52,6 @@ import { TrackService } from './services/track.service';
     MediaMatcher,
     UserService,
     TrackService,
-    IsLoggedInService
   ],
   bootstrap: [AppComponent]
 })

@@ -16,7 +16,7 @@ interface LoginForm {
   templateUrl: './loginform.component.html',
   styleUrls: ['./loginform.component.css']
 })
-export class LoginformComponent implements OnInit {
+export class LoginformComponent {
   formInfo: LoginForm = {
     username: '',
     password: ''
@@ -24,9 +24,7 @@ export class LoginformComponent implements OnInit {
 
   message: string;
 
-  constructor(public auth: AuthService,  private router: Router) {}
-
-  ngOnInit() {}
+  constructor(public auth: AuthService, private router: Router) {}
 
   login() {
     if (this.formInfo.username !== '' || this.formInfo.password !== '') {
@@ -35,4 +33,5 @@ export class LoginformComponent implements OnInit {
         .subscribe(res => this.router.navigate(['/board']));
     }
   }
+
 }

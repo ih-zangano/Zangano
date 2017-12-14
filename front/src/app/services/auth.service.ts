@@ -11,32 +11,26 @@ const BASE_URL = `${BASE_DOMAIN}/api`;
 
 @Injectable()
 export class AuthService {
-  private options: object = {
+  options: object = {
     withCredentials: true
   };
-  public user: object;
-  private userLoginEvent: EventEmitter<object> = new EventEmitter();
+  user: object;
+  loginEvent: EventEmitter<object> = new EventEmitter();
 
-  constructor(private http: Http, private router: Router) {
+  constructor(private http: Http) {
     this.isLoggedIn().subscribe();
   }
 
   handleError(e) {
     const error_message = e.json().message;
+    console.error(error_message);
     return Observable.throw(e.json().message);
   }
 
-  public getLoginEventEmitter(): EventEmitter<any> {
-    return this.userLoginEvent;
-  }
-
-  public getUser() {
+  handleUser(obj) {
+    this.user = obj;
+    this.loginEvent.emit(this.user);
     return this.user;
-  }
-  private emitUserLoginEvent(user) {
-    this.user = user;
-    this.userLoginEvent.emit(user);
-    return user;
   }
 
   signup(username: string, password: string, email: string) {
@@ -47,8 +41,7 @@ export class AuthService {
         this.options
       )
       .map(res => res.json())
-      .map(user => this.emitUserLoginEvent(user))
-      .map(() => this.router.navigate(['/board']))
+      .map(user => this.handleUser(user))
       .catch(this.handleError);
   }
 
@@ -56,15 +49,16 @@ export class AuthService {
     return this.http
       .post(`${BASE_URL}/auth/login`, { username, password }, this.options)
       .map(res => res.json())
-      .map(user => this.emitUserLoginEvent(user))
+      .map(user => this.handleUser(user))
       .catch(this.handleError);
   }
+
 
   logout() {
     return this.http
       .get(`${BASE_URL}/auth/logout`, this.options)
       .map(res => res.json())
-      .map(user => this.emitUserLoginEvent(null))
+      .map(user => this.handleUser(null))
       .catch(this.handleError);
   }
 
@@ -72,13 +66,12 @@ export class AuthService {
     return this.http
       .get(`${BASE_URL}/auth/loggedin`, this.options)
       .map(res => res.json())
-      .map(user => this.emitUserLoginEvent(user))
+      .map(user => this.handleUser(user))
       .catch(this.handleError);
   }
-   sendMail() {
+  sendMail() {
     return this.http
       .post(`${BASE_URL}/email/sendEmail`, this.user, this.options)
       .map(res => res.json());
   }
-
 }

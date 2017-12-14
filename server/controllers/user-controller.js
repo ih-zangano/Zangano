@@ -55,4 +55,6 @@ module.exports = {
           .json({ message: `Error when trying to delete user -> ${e}` })
       );
   }
+
+  
 };

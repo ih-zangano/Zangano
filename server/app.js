@@ -50,7 +50,7 @@ app.use(cookieParser());
 app.use(
   session({
     secret: 'Zangano',
-    resave: true,
+    resave: false,
     saveUninitialized: true,
     cookie: {
       httpOnly: true,

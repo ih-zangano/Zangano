@@ -12,7 +12,6 @@ import { BoardComponent } from './components/board/board.component';
 import { NewtrackComponent } from './components/board/newtrack/newtrack.component';
 import { TimetableComponent } from './components/board/timetable/timetable.component';
 import { CollectionComponent } from './components/board/collection/collection.component';
-import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -21,33 +20,27 @@ export const routes: Routes = [
   { path: 'login', component: LoginformComponent },
   {
     path: 'user',
-    component: UserprofileComponent,
-    canActivate: [IsLoggedInService]
+    component: UserprofileComponent
   },
   {
     path: 'profile',
-    component: UserDetailsComponent,
-    canActivate: [IsLoggedInService]
+    component: UserDetailsComponent
   },
   {
     path: 'board',
-    component: BoardComponent,
-    canActivate: [IsLoggedInService]
+    component: BoardComponent
   },
   {
     path: 'board/collection',
-    component: CollectionComponent,
-    canActivate: [IsLoggedInService]
+    component: CollectionComponent
   },
   {
     path: 'board/collection/newtrack',
-    component: NewtrackComponent,
-    canActivate: [IsLoggedInService]
+    component: NewtrackComponent
   },
   {
     path: 'board/collection/timetable',
-    component: TimetableComponent,
-    canActivate: [IsLoggedInService]
+    component: TimetableComponent
   },
   { path: '**', redirectTo: '' }
 ];

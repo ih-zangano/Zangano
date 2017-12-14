@@ -1,17 +1,19 @@
 import { Http } from '@angular/http';
 import { environment } from './../../environments/environment';
 import { Injectable } from '@angular/core';
+import { UserService } from './user.service';
+
 
 const BASE_DOMAIN = 'http://localhost:3000';
 const BASEURL = `${BASE_DOMAIN}/api/track`;
 
 
 interface BagUser {
-  track: any;
+  track: Object;
 }
 @Injectable()
 export class TrackService {
-  private bag: Array<any> = [];
+  private bag: Array<Object> = [];
   private track: Object;
   private options = { withCredentials: true };
 

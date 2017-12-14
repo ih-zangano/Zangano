@@ -3,30 +3,35 @@
 </div>
 
 <div *ngIf="user">
-  <div class="row user-perf">
-    <div class="col-sm-8">
-      <div class="panel panel-primary">
-        <div class="panel-heading">
-          <h2>User:
-            <b>{{user.username}}</b>
-          </h2>
-        </div>
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-sm-4">
-              <p>
-                <b>Name</b> {{user.firstName}} {{user.lastName}}</p>
+  <div class="row user-perf container">
+      <div class="col-sm-2">
+      </div>
+      <div class="col-sm-8">
+        <form novalidate>
+          <div class="form-group">
+            <label>Username</label>
+            <input class="form-control" type="text" [(ngModel)]="user.username" name="username" required>
+          </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label>First Name</label>
+              <input class="form-control" type="text" [(ngModel)]="user.firstName" name="firstname" required>
             </div>
-            <div class="col-sm-4">
-              <p>
-                <b>Email</b> {{user.email}}</p>
+            <div class="form-group">
+              <label>Email</label>
+              <input class="form-control" type="email" [(ngModel)]="user.email" name="email" required>
             </div>
           </div>
-        </div>
+          <div class="col-sm-6">
+            <div class="form-group">
+              <label>Last Name</label>
+              <input class="form-control" type="text" [(ngModel)]="user.lastName" name="lastName" required>
+            </div>
+          </div>
+        </form>
       </div>
-    </div>
     <div class="col-sm-2">
-      <a class="btn bt" [routerLink]="['/profile']">User profile</a>
+      <a class="btn bt" [routerLink]="['/profile']">Edit profile</a>
       <a class="btn bt" [routerLink]="['/board']">Back to Home</a>
     </div>
   </div>
