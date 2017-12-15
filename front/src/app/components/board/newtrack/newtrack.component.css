@@ -13,10 +13,7 @@
   padding: 40px;
   border-radius: 3px;
 }
-.position-btn{
+.position-btn {
   margin-bottom: 10px;
+  justify-content: center;
 }
-
-
-
-

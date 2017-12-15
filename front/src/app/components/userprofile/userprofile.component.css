@@ -1,11 +1,13 @@
-
 .panel-heading {
   background-color: #bcffdb;
   color: #000000;
 }
 
-
-.title{
+.title {
   padding-top: 20px;
 }
 
+.position-btn {
+  margin-bottom: 10px;
+  justify-content: center;
+}

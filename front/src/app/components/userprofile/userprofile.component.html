@@ -22,9 +22,11 @@
         <label class="active" for="email">Email</label>
       </div>
     </div>
-    <div class="row valign-wrapper center-align">
-      <a class="btn bt bottom" [routerLink]="['/profile']">Edit</a>
-      <a class="btn bt bottom" [routerLink]="['/board']">Home</a>
+    <div class="row valign-wrapper center-align position-btn">
+      <button class="btn waves-effect waves-light z-depth-2 position-btn" type="submit" name="action" [routerLink]="['/profile']">Edit
+        <i class="material-icons right"></i>
+      </button>
+      <button class="btn waves-effect waves-light z-depth-2 position-btn" type="submit" name="action" [routerLink]="['/board']">Home
+        <i class="material-icons left"></i>
+      </button>
     </div>
-  </form>
-</div>

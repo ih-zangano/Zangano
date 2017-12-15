@@ -6,25 +6,24 @@
     </a>
     <ul class="side-nav container" id="mobile-demo">
       <div *ngIf="!user">
-        <li >
+        <li>
           <a class="link active  line" [routerLink]="['login']">Log in</a>
         </li>
         <li *ngIf="!user">
           <a class="link active line" [routerLink]="['signup']">Sign up</a>
         </li>
       </div>
-        <div *ngIf="user">
-            <li *ngIf="user">
-              <a class="link active line" [routerLink]="['/board']">Home</a>
-            </li>
-          <li *ngIf="user">
-            <a class="link active line" [routerLink]="['/user']">User Profile</a>
-          </li>
-          <li *ngIf="user">
-            <a class="link active" (click)="logout()">Logout</a>
-          </li>
-        </div>
+      <div *ngIf="user">
+        <li *ngIf="user">
+          <a class="link active line" [routerLink]="['/board']">Home</a>
+        </li>
+        <li *ngIf="user">
+          <a class="link active line" [routerLink]="['/user']">User Profile</a>
+        </li>
+        <li *ngIf="user">
+          <a class="link active" (click)="logout()">Logout</a>
+        </li>
+      </div>
     </ul>
   </div>
 </nav>
-

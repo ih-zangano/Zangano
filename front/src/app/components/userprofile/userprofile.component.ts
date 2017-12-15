@@ -8,7 +8,6 @@ import { RouterModule, Routes } from '@angular/router';
 import { routes } from '../../routes';
 import { Observable } from 'rxjs/Observable';
 
-
 @Component({
   selector: 'app-userprofile',
   templateUrl: './userprofile.component.html',

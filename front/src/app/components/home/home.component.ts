@@ -26,11 +26,10 @@ export class HomeComponent implements OnInit {
     $('.button-collapse').sideNav({
       closeOnClick: true,
       menuWidth: 250,
-      draggable: true,
-
+      draggable: true
     });
   }
   logout() {
-    this.auth.logout().subscribe(res => this.router.navigate(['/login']));
+    this.auth.logout().subscribe(res => this.router.navigate(['/init']));
   }
 }

@@ -18,15 +18,13 @@ export class CollectionComponent implements OnInit {
     private trackService: TrackService,
     private authService: AuthService,
     public userService: UserService
-  ) { }
+  ) {}
 
   ngOnInit() {
-    setTimeout(() => {
-    }, 1000);
+    setTimeout(() => {}, 1000);
     this.trackService.getAll(this.authService.user._id).subscribe(user => {
       this.bag = user.bag;
+      // this.bag.forEach(track => console.log(track));
     });
-    }
-
+  }
 }
-

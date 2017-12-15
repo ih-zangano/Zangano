@@ -1,47 +1,40 @@
-
 <div class="row container">
   <div class="col s12 m6">
     <div class="card blue lighten-3">
       <div class="card-content black-text">
-        <span class="card-title title">My Board</span>
+        <span class="card-title title z-depth-3 home">My Board</span>
         <div class="card-action">
-
         </div>
         <div>
-           <app-collection></app-collection>
+          <app-collection></app-collection>
         </div>
       </div>
     </div>
   </div>
-<div class="fixed-action-btn horizontal">
-  <a class="btn-floating btn-large red">
-    <i class="large material-icons ">apps</i>
-  </a>
-  <ul>
-    <li>
-      <a class="btn-floating red pulse">
-        <i class="material-icons waves-effect waves-light modal-trigger" [routerLink]="['/board/collection/newtrack']">add</i>
-      </a>
-    </li>
-    <li>
-      <a class="btn-floating yellow darken-1 pulse">
-        <i class="material-icons " [routerLink]="['/user']">person</i>
-      </a>
-    </li>
-    <li>
-      <a class="btn-floating green pulse">
-        <i class="material-icons" [routerLink]="['/board/collection/timetable']">date_range</i>
-      </a>
-    </li>
-    <li>
-      <a class="btn-floating blue pulse">
-        <i class="material-icons ">delete</i>
-      </a>
-    </li>
-  </ul>
-</div>
-
-
-
-
-
+  <div class="fixed-action-btn horizontal ">
+    <a class="btn-floating btn-large red z-depth-5">
+      <i class="large material-icons ">apps</i>
+    </a>
+    <ul>
+      <li>
+        <a class="btn-floating red pulse z-depth-4">
+          <i class="material-icons waves-effect waves-light modal-trigger" [routerLink]="['/board/collection/newtrack']">add</i>
+        </a>
+      </li>
+      <li>
+        <a class="btn-floating yellow darken-1 pulse z-depth-4">
+          <i class="material-icons " [routerLink]="['/user']">person</i>
+        </a>
+      </li>
+      <li>
+        <a class="btn-floating green pulse z-depth-4">
+          <i class="material-icons" [routerLink]="['/board/collection/timetable']">date_range</i>
+        </a>
+      </li>
+      <li>
+        <a class="btn-floating blue pulse z-depth-4">
+          <i class="material-icons ">delete</i>
+        </a>
+      </li>
+    </ul>
+  </div>

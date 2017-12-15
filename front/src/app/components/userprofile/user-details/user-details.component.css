@@ -12,7 +12,9 @@
 .container {
   padding: 20px;
   margin: 0;
-   text-align: center;
-
+  text-align: center;
 }
-
+.position-btn {
+  margin-bottom: 10px;
+  justify-content: center;
+}

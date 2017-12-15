@@ -5,6 +5,21 @@
   text-align: center;
   padding-top: 40%;
 }
-button{
+
+.cosa {
+  text-align: center;
   padding-top: 15px;
+align-items: center;
+justify-content: center;
+ margin-bottom: 10px;
+ justify-content: center;
+
+
+
+  /*  align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column; */
+
+
 }

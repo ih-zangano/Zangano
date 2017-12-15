@@ -3,8 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { RouterModule, Routes } from '@angular/router';
 import { routes } from '../../routes';
- import { Router } from '@angular/router';
- import { Observable } from 'rxjs/Observable';
+import { Router } from '@angular/router';
+import { Observable } from 'rxjs/Observable';
 import { NgForm } from '@angular/forms';
 interface LoginForm {
   username: string;
@@ -33,5 +33,4 @@ export class LoginformComponent {
         .subscribe(res => this.router.navigate(['/board']));
     }
   }
-
 }
