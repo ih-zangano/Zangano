@@ -1,38 +1,30 @@
-<div *ngIf="!user">
-  <h2>No user logged in</h2>
-</div>
-
-<div *ngIf="user">
-  <div class="row user-perf container">
-      <div class="col-sm-2">
+<div class="row valign-wrapper title" *ngIf="user">
+  <form class="col s12" novalidate>
+    <div class="row">
+      <div class="input-field col s12">
+        <input disabled value="User" id="disabled" [(ngModel)]="user.username" name="username" type="text" class="validate" required>
+        <label class="active" for="disabled">User</label>
       </div>
-      <div class="col-sm-8">
-        <form novalidate>
-          <div class="form-group">
-            <label>Username</label>
-            <input class="form-control" type="text" [(ngModel)]="user.username" name="username" required>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label>First Name</label>
-              <input class="form-control" type="text" [(ngModel)]="user.firstName" name="firstname" required>
-            </div>
-            <div class="form-group">
-              <label>Email</label>
-              <input class="form-control" type="email" [(ngModel)]="user.email" name="email" required>
-            </div>
-          </div>
-          <div class="col-sm-6">
-            <div class="form-group">
-              <label>Last Name</label>
-              <input class="form-control" type="text" [(ngModel)]="user.lastName" name="lastName" required>
-            </div>
-          </div>
-        </form>
-      </div>
-    <div class="col-sm-2">
-      <a class="btn bt" [routerLink]="['/profile']">Edit profile</a>
-      <a class="btn bt" [routerLink]="['/board']">Back to Home</a>
     </div>
-  </div>
+    <div class="row">
+      <div class="input-field col s6">
+        <input disabled id="disabled" type="text" [(ngModel)]="user.firstName" name="firstName" class="validate" required>
+        <label class="active" for="first_name">First Name</label>
+      </div>
+      <div class="input-field col s6">
+        <input disabled id="disabled" type="text" [(ngModel)]="user.lastName" name="lastName" class="validate" required>
+        <label class="active" for="last_name">Last Name</label>
+      </div>
+    </div>
+    <div class="row">
+      <div class="input-field col s12">
+        <input disabled id="disabled" type="email" [(ngModel)]="user.email" name="email" class="validate" required>
+        <label class="active" for="email">Email</label>
+      </div>
+    </div>
+    <div class="row valign-wrapper center-align">
+      <a class="btn bt bottom" [routerLink]="['/profile']">Edit</a>
+      <a class="btn bt bottom" [routerLink]="['/board']">Home</a>
+    </div>
+  </form>
 </div>

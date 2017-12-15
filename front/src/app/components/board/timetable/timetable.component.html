@@ -1,13 +1,10 @@
-<!-- Modal Trigger -->
-<a class="waves-effect waves-light btn modal-trigger" href="#modal1">Modal</a>
-
-<!-- Modal Structure -->
-<div id="modal1" class="modal modal-fixed-footer">
-  <div class="modal-content">
-    <h4>Modal Header</h4>
-    <p>A bunch of text</p>
+<div class="container">
+  <div>
+    <label for="calendar">Finished Protection</label>
+    <input type="text" class="datepicker">
   </div>
-  <div class="modal-footer">
-    <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat ">Agree</a>
+  <div class="row valign-wrapper center-align">
+    <a class="btn bt bottom">Send</a>
+    <a class="btn bt bottom" [routerLink]="['/board']">Home</a>
   </div>
 </div>

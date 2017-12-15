@@ -13,9 +13,11 @@ import { NewtrackComponent } from './components/board/newtrack/newtrack.componen
 import { TimetableComponent } from './components/board/timetable/timetable.component';
 import { CollectionComponent } from './components/board/collection/collection.component';
 import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
+import { InitComponent } from './components/init/init.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'login', pathMatch: 'full' },
+  { path: '', redirectTo: 'init', pathMatch: 'full' },
+  { path: 'init', component: InitComponent },
   { path: 'home', component: HomeComponent },
   { path: 'signup', component: SignupformComponent },
   { path: 'login', component: LoginformComponent },

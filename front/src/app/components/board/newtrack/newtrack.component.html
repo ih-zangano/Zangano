@@ -1,8 +1,12 @@
 <div class="form-group container">
   <label for="idtrack" class="col-sm-2 control-label">Busqueda</label>
-  <input type="text" class="form-control" [(ngModel)]="idTrack" id="idtrack" name="idtrack" placeholder=" New ID Track"/>
+  <input type="text" class="form-control form" [(ngModel)]="idTrack" id="idtrack" name="idtrack" placeholder=" New ID Track"
+  />
   <button class="btn waves-effect waves-light" type="submit" name="action" (click)="newTrack(idTrack)">Send
-  <i class="material-icons right"></i></button>
+    <i class="material-icons right"></i>
+  </button>
+  <button class="btn waves-effect waves-light" type="submit" name="action" class="btn bt bottom" [routerLink]="['/board']">Home
+    <i class="material-icons left"></i>
+  </button>
+
 </div>
-
-

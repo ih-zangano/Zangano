@@ -1,4 +1,4 @@
-<div class="container" >
+<!-- <div class="container" >
   <div class="row edit-user">
     <div class="col-sm-2">
     </div>
@@ -26,9 +26,41 @@
         </div>
       </form>
     </div>
-    <div class="col-sm-2">
-      <a class="btn bt" (click)="saveChanges(user)" [routerLink]="['/board']">Save Changes</a>
-      <a class="btn bt" [routerLink]="['/user']">Back to Profile</a>
-    </div>
+
   </div>
-</div>
+</div> -->
+
+
+
+
+  <div class="row">
+    <form class="col s12" novalidate>
+      <div class="row edit-user">
+        <div class="input-field col s12">
+          <input disabled id="disabled" [(ngModel)]="editUser.username" name="username" type="text" class="validate" required>
+          <label class="active" for="disabled">User</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s6">
+          <input id="first_name" type="text" [(ngModel)]="editUser.firstName"  name="firstName" class="validate" required>
+          <label for="first_name">First Name</label>
+        </div>
+        <div class="input-field col s6">
+          <input id="last_name" type="text" [(ngModel)]="editUser.lastName" name="lastName" class="validate" required>
+          <label for="last_name">Last Name</label>
+        </div>
+      </div>
+      <div class="row">
+        <div class="input-field col s12">
+          <input id="email" type="email" [(ngModel)]="editUser.email"  name="email" class="validate" required>
+          <label for="email">Email</label>
+        </div>
+      </div>
+      <div class="row ">
+        <a class="btn bt" (click)="saveChanges(user)" [routerLink]="['/board']">Save Changes</a>
+        <a class="btn bt" [routerLink]="['/user']">Back</a>
+      </div>
+
+    </form>
+  </div>

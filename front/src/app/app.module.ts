@@ -23,6 +23,7 @@ import { NewtrackComponent } from './components/board/newtrack/newtrack.componen
 import { TimetableComponent } from './components/board/timetable/timetable.component';
 import { TrackService } from './services/track.service';
 import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
+import { InitComponent } from './components/init/init.component';
 
 
 
@@ -39,7 +40,8 @@ import { IsLoggedInService } from './services/isLoggedIn.canactivate.service';
     BoardComponent,
     CollectionComponent,
     NewtrackComponent,
-    TimetableComponent
+    TimetableComponent,
+    InitComponent
   ],
   imports: [
     BrowserModule,

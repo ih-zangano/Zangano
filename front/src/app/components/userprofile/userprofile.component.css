@@ -4,13 +4,8 @@
   color: #000000;
 }
 
-.container {
-  padding: 20px;
-  margin: 0;
-   text-align: center;
-}
 
-.imput{
-   text-align: center;
+.title{
+  padding-top: 20px;
 }
 

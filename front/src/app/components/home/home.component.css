@@ -2,15 +2,15 @@
   background-color: #5260ff;
 
 }
-
 .container {
   padding: 15px 20px 0 20px ;
   margin: 0;
   justify-content: center;
 
 }
-
 .link {
   font-size: 20px;
 }
-
+.line{
+text-decoration-line: bottom ;
+}
